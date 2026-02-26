@@ -1,0 +1,643 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
+:root {
+    --preto-tim: #0a0a0a;
+    --preto-azulado: #14181c;
+    --cinza-corvo: #2d2d2d;
+    --cinza-nevoeiro: #4a4a4a;
+    --branco-cadaver: #e0e0e0;
+    --roxo-sombra: #1f1b2c;
+    --laranja-abobora: #b85e0e;
+    --laranja-fosforo: #ff8c00;
+    
+    --fonte-titulo: 'Trade Winds', cursive;
+    --fonte-subtitulo: 'Berkshire Swash', cursive;
+    --fonte-corpo: 'Special Elite', cursive;
+    --fonte-detalhe: 'IM Fell English SC', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-corpo);
+    font-size: 1rem;
+    color: var(--branco-cadaver);
+    background: var(--preto-tim);
+    min-height: 100vh;
+    position: relative;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+/* BACKGROUND SIMPLES QUE COMBINA COM O SITE */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        /* Gradiente suave que imita as cores do site */
+        radial-gradient(circle at 30% 40%, rgba(184, 94, 14, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(184, 94, 14, 0.03) 0%, transparent 40%),
+        /* Textura sutil de vinco de papel */
+        repeating-linear-gradient(45deg, 
+            rgba(255, 255, 255, 0.01) 0px, 
+            rgba(255, 255, 255, 0.01) 2px,
+            transparent 2px, 
+            transparent 8px),
+        /* Fundo escuro com variação suave */
+        linear-gradient(145deg, 
+            var(--preto-tim) 0%, 
+            var(--roxo-sombra) 50%, 
+            var(--preto-azulado) 100%);
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(
+        175deg,
+        var(--preto-azulado) 0%,
+        var(--roxo-sombra) 50%,
+        var(--preto-tim) 100%
+    );
+    text-align: center;
+    padding: 4rem 2rem 3.5rem;
+    position: relative;
+    z-index: 10;
+    border-bottom: 3px solid var(--laranja-abobora);
+    transform: skewY(-0.8deg) translateY(-5px);
+    margin-bottom: 10px;
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+    box-shadow: 0 15px 25px -12px black;
+}
+
+/* Caveiras decorativas */
+header::before {
+    content: "💀💀💀";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.6rem;
+    color: var(--laranja-abobora);
+    opacity: 0.3;
+    letter-spacing: 12px;
+    z-index: 5;
+}
+
+header h1 {
+    font-family: var(--fonte-titulo);
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--branco-cadaver);
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 0.8rem;
+    position: relative;
+    z-index: 5;
+    text-shadow: 
+        2px 2px 0 var(--laranja-abobora),
+        4px 4px 0 rgba(0, 0, 0, 0.9);
+    transform: skewY(0.3deg);
+    line-height: 1.2;
+}
+
+header h1 span {
+    font-family: var(--fonte-subtitulo);
+    font-size: 1.8rem;
+    display: block;
+    letter-spacing: 4px;
+    color: var(--laranja-abobora);
+    text-shadow: 2px 2px 0 black;
+    margin-top: 0.3rem;
+    transform: skewY(-0.3deg);
+}
+
+/* NAVEGAÇÃO REFEITA - SEM BUGS */
+nav {
+    background: linear-gradient(
+        90deg,
+        var(--preto-tim) 0%,
+        var(--roxo-sombra) 30%,
+        var(--roxo-sombra) 70%,
+        var(--preto-tim) 100%
+    );
+    text-align: center;
+    padding: 1.2rem 0;
+    border-top: 2px solid var(--laranja-abobora);
+    border-bottom: 2px solid var(--laranja-abobora);
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 8px 16px -8px black;
+}
+
+/* Listras diagonais sutis no fundo */
+nav::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 12px,
+        rgba(184, 94, 14, 0.03) 12px,
+        rgba(184, 94, 14, 0.03) 24px
+    );
+    pointer-events: none;
+}
+
+nav .nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+nav a {
+    font-family: var(--fonte-detalhe);
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: var(--branco-cadaver);
+    padding: 0.6rem 2rem;
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 0 black;
+    background: transparent;
+    border-radius: 0;
+    min-width: 160px;
+    text-align: center;
+}
+
+/* Animação nova - brilho e moldura */
+nav a::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+nav a::after {
+    content: "💀";
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: var(--laranja-abobora);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+nav a:hover {
+    color: var(--laranja-fosforo);
+    border-color: var(--laranja-abobora);
+    background: rgba(0, 0, 0, 0.4);
+    letter-spacing: 4px;
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(184, 94, 14, 0.3);
+}
+
+nav a:hover::after {
+    opacity: 1;
+    left: -15px;
+}
+
+nav a:last-child:hover::after {
+    content: "💀";
+    left: auto;
+    right: -15px;
+}
+
+nav a:last-child::after {
+    left: auto;
+    right: 5px;
+}
+
+nav a:last-child:hover::after {
+    left: auto;
+    right: -15px;
+}
+
+/* WRAPPER */
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+/* ITEMS - ANIMAÇÕES ORIGINAIS PRESERVADAS */
+.item {
+    width: 300px;
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.15, 1.2);
+    position: relative;
+    z-index: 10;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.7));
+}
+
+/* Mantendo animações originais */
+.item:nth-of-type(4n+1) {
+    transform: scale(0.84) rotate(4deg);
+}
+
+.item:nth-of-type(4n+2) {
+    transform: scale(0.84) rotate(-4deg);
+}
+
+.item:nth-of-type(4n+3) {
+    transform: scale(0.84) rotate(3deg);
+}
+
+.item:nth-of-type(4n+4) {
+    transform: scale(0.84) rotate(-3deg);
+}
+
+.item:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    z-index: 100;
+    filter: drop-shadow(0 15px 25px rgba(184, 94, 14, 0.3));
+}
+
+/* POLAROID */
+.polaroid {
+    background: linear-gradient(
+        145deg,
+        #1a1a1a 0%,
+        #251515 100%
+    );
+    padding: 1rem 1rem 1.8rem 1rem;
+    border: 2px solid var(--laranja-abobora);
+    position: relative;
+    transition: all 0.5s ease;
+    box-shadow: 0 15px 25px -10px black;
+    border-radius: 3px 8px 3px 8px;
+}
+
+.polaroid::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px solid var(--laranja-fosforo);
+    opacity: 0.1;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    border-radius: 2px 6px 2px 6px;
+}
+
+/* Caveira no canto */
+.polaroid::after {
+    content: "💀";
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+    font-size: 1rem;
+    color: var(--laranja-abobora);
+    opacity: 0.2;
+    transition: all 0.5s ease;
+}
+
+.item:hover .polaroid::after {
+    opacity: 0.6;
+    transform: scale(1.2);
+}
+
+.polaroid img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.1);
+    transition: all 0.5s ease;
+    display: block;
+    border: 2px solid var(--cinza-corvo);
+    border-radius: 2px 5px 2px 5px;
+}
+
+.item:hover .polaroid img {
+    filter: grayscale(60%) contrast(1.2);
+    border-color: var(--laranja-abobora);
+}
+
+.caption {
+    font-family: var(--fonte-corpo);
+    font-size: 1.1rem;
+    text-align: center;
+    color: var(--branco-cadaver);
+    margin-top: 0.8rem;
+    padding: 0.8rem 0.5rem;
+    border-top: 2px solid var(--laranja-abobora);
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 0 black;
+    transition: all 0.5s ease;
+    position: relative;
+}
+
+/* Caveiras decorativas na legenda */
+.caption::before {
+    content: "💀 💀 💀";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    color: var(--laranja-fosforo);
+    opacity: 0.3;
+    letter-spacing: 4px;
+    white-space: nowrap;
+}
+
+.item:hover .caption {
+    color: var(--laranja-fosforo);
+    border-top-color: var(--laranja-fosforo);
+}
+
+.caption a {
+    color: var(--laranja-abobora);
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+    transition: all 0.4s ease;
+    display: inline-block;
+    margin-top: 0.3rem;
+    padding: 0.2rem 0.8rem;
+    font-family: var(--fonte-detalhe);
+}
+
+.caption a:hover {
+    color: var(--branco-cadaver);
+    border-color: var(--laranja-fosforo);
+    background: rgba(184, 94, 14, 0.2);
+}
+
+/* FOOTER */
+footer {
+    background: linear-gradient(
+        5deg,
+        var(--preto-tim) 0%,
+        var(--roxo-sombra) 50%,
+        var(--preto-azulado) 100%
+    );
+    color: var(--branco-cadaver);
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 3px solid var(--laranja-abobora);
+    position: relative;
+    z-index: 10;
+    clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    color: var(--laranja-abobora);
+    opacity: 0.3;
+    letter-spacing: 6px;
+}
+
+footer p {
+    margin: 0.6rem 0;
+    position: relative;
+    z-index: 5;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+footer strong {
+    font-family: var(--fonte-detalhe);
+    color: var(--laranja-fosforo);
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 0 black;
+}
+
+footer p:last-child {
+    margin-top: 1.2rem;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    border-top: 1px solid var(--laranja-abobora);
+    border-bottom: 1px solid var(--laranja-abobora);
+    display: inline-block;
+    padding: 0.5rem 2rem;
+}
+
+/* PLAYER DE MÚSICA ESTILIZADO */
+.music-player {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+    border: 2px solid var(--laranja-abobora);
+    border-radius: 40px;
+    padding: 8px 18px 8px 12px;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+    transition: all 0.4s ease;
+}
+
+.music-player:hover {
+    border-color: var(--laranja-fosforo);
+    box-shadow: 0 5px 25px rgba(184, 94, 14, 0.4);
+    transform: scale(1.02);
+}
+
+.player-btn {
+    background: none;
+    border: none;
+    color: var(--laranja-abobora);
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--laranja-abobora);
+}
+
+.player-btn:hover {
+    color: var(--laranja-fosforo);
+    border-color: var(--laranja-fosforo);
+    transform: scale(1.1);
+    background: rgba(184, 94, 14, 0.2);
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.player-title {
+    font-family: var(--fonte-corpo);
+    font-size: 0.8rem;
+    color: var(--branco-cadaver);
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.player-status {
+    font-family: var(--fonte-corpo);
+    font-size: 0.65rem;
+    color: var(--laranja-abobora);
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+
+.player-volume {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 5px;
+}
+
+.volume-icon {
+    color: var(--laranja-abobora);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.volume-icon:hover {
+    color: var(--laranja-fosforo);
+    transform: scale(1.1);
+}
+
+.volume-slider {
+    width: 60px;
+    height: 4px;
+    -webkit-appearance: none;
+    background: linear-gradient(90deg, var(--laranja-abobora), var(--laranja-fosforo));
+    border-radius: 2px;
+    outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: var(--branco-cadaver);
+    border-radius: 50%;
+    border: 2px solid var(--laranja-abobora);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    border-color: var(--laranja-fosforo);
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 8px;
+    background: var(--preto-tim);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--roxo-sombra);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--laranja-abobora);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--laranja-fosforo);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+    
+    header h1 span {
+        font-size: 1.3rem;
+    }
+    
+    nav .nav-container {
+        gap: 1rem;
+    }
+    
+    nav a {
+        min-width: 140px;
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .wrapper {
+        padding: 2rem 1rem;
+        gap: 2rem;
+    }
+    
+    .item {
+        width: 260px;
+    }
+    
+    .polaroid img {
+        height: 280px;
+    }
+    
+    .music-player {
+        bottom: 15px;
+        right: 15px;
+        padding: 6px 12px;
+    }
+    
+    .player-title {
+        display: none;
+    }
+}
